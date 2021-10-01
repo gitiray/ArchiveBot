@@ -109,7 +109,7 @@ func start() {
 				replyMessage = "备份出错：" + saveError.Error()
 			} else {
 				// 不知道Telegraph的换行符是什么，所以这里处理了先。
-				replyMessage = "备份成功：" + link
+				replyMessage = link
 			}
 
 			msg := tgbot.NewMessage(update.Message.Chat.ID, replyMessage)
