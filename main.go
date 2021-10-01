@@ -106,13 +106,10 @@ func start() {
 
 			link, saveError := archive.Save(updateText, telegraphToken, attachInfo)
 			if saveError != nil {
-				replyMessage = "文章保存出错：" + saveError.Error()
+				replyMessage = "备份出错：" + saveError.Error()
 			} else {
 				// 不知道Telegraph的换行符是什么，所以这里处理了先。
-				replyMessage = link + `
-	
-	文章由 @beifenbot 备份
-	代码开源：` + projectLink
+				replyMessage = "备份成功：" + link
 			}
 
 			msg := tgbot.NewMessage(update.Message.Chat.ID, replyMessage)
